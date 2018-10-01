@@ -6,7 +6,7 @@ public abstract class Employee implements CompanyManager {
     double salary;
     Date birthday;
 
-    public void addEmploye(String name,String surname, Date birthday,String companyName,double Salary)
+    public Employee(String name,String surname, Date birthday,String companyName,double salary)
     {
         this.name = name;
         this.surname = surname;
@@ -14,6 +14,11 @@ public abstract class Employee implements CompanyManager {
         this.companyName = companyName;
         this.salary = salary;
     }
+    public void addEmployee(String name, String surname, Date birthday, double salary, String companyName)
+    {
 
-    
+    }
+
+
+
 }
