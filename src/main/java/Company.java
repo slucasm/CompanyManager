@@ -1,10 +1,11 @@
 import java.util.LinkedList;
+import java.util.List;
 
 
 public class Company extends Manager {
 
     private String companyName, description;
-    private LinkedList<Employee> listaEmployee = new LinkedList<Employee>();
+    private List<Employee> listaEmployee = new LinkedList<Employee>();
 
     public Company(String companyName,String description)
     {
@@ -28,11 +29,11 @@ public class Company extends Manager {
     {
         return description;
     }
-    public void setListaEmployee(LinkedList<Employee> listaEmployee)
+    public void setListaEmployee(List<Employee> listaEmployee)
     {
         this.listaEmployee = listaEmployee;
     }
-    public LinkedList<Employee> getListaEmployee()
+    public List<Employee> getListaEmployee()
     {
         return listaEmployee;
     }

@@ -7,7 +7,7 @@ public interface CompanyManager {
     public void addEmployee(String name, String surname, Date birthday, double salary, String companyName) throws MyException;
     public List<Employee> findAllEmployeesOrderedByName();
     public List<Employee> findAllEmployeesOrderedBySalary();
-    public List<Employee> employees(String company);
+    public List<Employee> employees(String companyName);
     public List<Company> findAllCompanies();
     */
 }
