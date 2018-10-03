@@ -1,6 +1,7 @@
 import java.util.Date;
+import java.util.List;
 
-public abstract class Employee implements CompanyManager {
+public class Employee {
 
     String name, surname, companyName;
     double salary;
@@ -14,9 +15,45 @@ public abstract class Employee implements CompanyManager {
         this.companyName = companyName;
         this.salary = salary;
     }
-    public void addEmployee(String name, String surname, Date birthday, double salary, String companyName)
+    public void setName(String name)
     {
-
+        this.name = name;
+    }
+    public String getName()
+    {
+        return name;
+    }
+    public void setSurname(String surname)
+    {
+        this.surname = surname;
+    }
+    public String getSurname()
+    {
+        return surname;
+    }
+    public void setBirthday(Date birthday)
+    {
+        this.birthday = birthday;
+    }
+    public Date getBirthday()
+    {
+        return birthday;
+    }
+    public void setCompanyName(String companyName)
+    {
+        this.companyName = companyName;
+    }
+    public String getCompanyName()
+    {
+        return companyName;
+    }
+    public void setSalary (double salary)
+    {
+        this.salary = salary;
+    }
+    public double getSalary()
+    {
+        return salary;
     }
 
 
