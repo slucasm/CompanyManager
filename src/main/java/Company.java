@@ -2,9 +2,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class Company extends Manager {
+public class Company {
 
-    private String companyName, description;
+    String companyName, description;
     private List<Employee> listaEmployee = new LinkedList<Employee>();
 
     public Company(String companyName,String description)
@@ -12,6 +12,7 @@ public class Company extends Manager {
         this.companyName = companyName;
         this.description = description;
     }
+    public Company(){};
 
     public void setCompanyName(String companyName)
     {
@@ -36,5 +37,9 @@ public class Company extends Manager {
     public List<Employee> getListaEmployee()
     {
         return listaEmployee;
+    }
+    public void addEmployee(Employee e)
+    {
+        this.listaEmployee.add(e);
     }
 }

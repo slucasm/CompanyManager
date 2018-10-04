@@ -7,7 +7,7 @@ public class Employee {
     double salary;
     Date birthday;
 
-    public Employee(String name,String surname, Date birthday,String companyName,double salary)
+    public Employee(String name,String surname, Date birthday,double salary, String companyName)
     {
         this.name = name;
         this.surname = surname;
@@ -15,6 +15,8 @@ public class Employee {
         this.companyName = companyName;
         this.salary = salary;
     }
+    //public Employee(){};
+
     public void setName(String name)
     {
         this.name = name;
@@ -55,6 +57,7 @@ public class Employee {
     {
         return salary;
     }
+
 
 
 

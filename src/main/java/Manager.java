@@ -1,10 +1,12 @@
 import java.util.*;
+import org.apache.log4j.Logger;
 
+public class Manager implements CompanyManager{
 
-public abstract class Manager implements CompanyManager{
+    private HashMap<String,Company> HashMapCompanies = new HashMap<String, Company>();
+    private List<Employee> ListAllEmployees = new LinkedList<Employee>();
 
-    protected HashMap<String,Company> HashMapCompanies = new HashMap<String, Company>();
-    protected List<Employee> ListAllEmployees = new LinkedList<Employee>();
+    final Logger log = Logger.getLogger(MyException.class);
 
     public void addCompany(String companyName,String description)
     {
@@ -12,21 +14,19 @@ public abstract class Manager implements CompanyManager{
         HashMapCompanies.put(companyName,company);
     }
 
-    public void addEmployee(String name, String surname, Date birthday, double salary, String companyName)
-    {
-        Company company = HashMapCompanies.get(companyName);
-        Employee employee = new Employee(name,surname,birthday,companyName,salary);
-        List<Employee> lista = company.getListaEmployee();
-        lista.add(employee);
-        ListAllEmployees.add(employee);
+    public void addEmployee(String name, String surname, Date birthday, String companyName, double salary) throws MyException {
+        Company theCompany = this.HashMapCompanies.get(companyName);
+        if (theCompany==null) throw new MyException();
+
+        //If it isn't null, we have to add it
+        Employee e = new Employee(name, surname,birthday,salary,companyName);
+        this.ListAllEmployees.add(e);
+        theCompany.addEmployee(e);
     }
-    public List<Employee> findAllEmployeesOrderedByName()
-    {
+
+    public List<Employee> findAllEmployeesOrderedByName() {
         List<Employee> ListEmployeesOrderedByName = new LinkedList<Employee>();
-        for(Employee employee:ListAllEmployees)
-        {
-            ListEmployeesOrderedByName.add(employee);
-        }
+        ListEmployeesOrderedByName.addAll(this.ListAllEmployees);
         Collections.sort(ListEmployeesOrderedByName, new Comparator<Employee>() {
             public int compare(Employee o1, Employee o2) {
                 return o1.getName().compareTo(o2.getName());
